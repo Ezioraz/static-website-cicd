@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/ezioraz/static-website-cicd.git'
+                git 'https://github.com/Ezioraz/static-website-cicd.git'
             }
         }
 
