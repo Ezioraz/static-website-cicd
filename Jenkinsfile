@@ -25,7 +25,7 @@ pipeline {
         stage('Run New Container') {
             steps {
                 sh '''
-                docker run -d --name static-container -p 8080:80 static-site:latest
+                docker run -d --name static-container -p 8081:80 static-site:latest
                 '''
             }
         }
