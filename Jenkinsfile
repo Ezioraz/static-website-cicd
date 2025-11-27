@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Ezioraz/static-website-cicd.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
@@ -16,17 +11,13 @@ pipeline {
 
         stage('Stop Old Container') {
             steps {
-                sh '''
-                docker rm -f static-container || true
-                '''
+                sh 'docker rm -f static-container || true'
             }
         }
 
         stage('Run New Container') {
             steps {
-                sh '''
-                docker run -d --name static-container -p 8081:80 static-site:latest
-                '''
+                sh 'docker run -d --name static-container -p 8081:80 static-site:latest'
             }
         }
     }
